@@ -9,23 +9,22 @@ const notFound = require('./middleware/not-found');
 
 const connectDB = require('./db/connect');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 const authRouter = require('./routes/authRoutes');
 
 //middleware
 app.use(morgan('dev'));
+app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.json());
 
 //routes
-app.get('/', (req, res) => {
-  res.send('<h1>Home Page</h1>');
-})
 app.use('/api/v1/auth', authRouter);
 
 app.use(errorHandler);
 app.use(notFound);
 
-const port = process.env.PORT || 5000 ;
+const port = process.env.PORT;
 
 const start = async () => {
   try{
