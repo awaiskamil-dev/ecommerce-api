@@ -10,6 +10,8 @@ const notFound = require('./middleware/not-found');
 const connectDB = require('./db/connect');
 const morgan = require('morgan');
 
+const authRouter = require('./routes/authRoutes');
+
 //middleware
 app.use(morgan('dev'));
 app.use(express.json());
@@ -18,6 +20,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('<h1>Home Page</h1>');
 })
+app.use('/api/v1/auth', authRouter);
 
 app.use(errorHandler);
 app.use(notFound);
