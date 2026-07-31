@@ -12,6 +12,7 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 
 const authRouter = require('./routes/authRoutes');
+const userRouter = require('./routes/userRoutes');
 
 //middleware
 app.use(morgan('dev'));
@@ -20,6 +21,7 @@ app.use(express.json());
 
 //routes
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/users', userRouter);
 
 app.use(errorHandler);
 app.use(notFound);
