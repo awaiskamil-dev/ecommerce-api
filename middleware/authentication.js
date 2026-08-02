@@ -17,7 +17,7 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-const authroizePermissions = (...roles) => {
+const authorizePermissions = (...roles) => {
   return (req, res, next) => {
     if(!roles.includes(req.user.role)){
       throw new CustomError.UnauthenticatedError('Authentication Invalid');
@@ -28,5 +28,5 @@ const authroizePermissions = (...roles) => {
 
 module.exports = {
   authenticateUser,
-  authroizePermissions
+  authorizePermissions
 };
