@@ -4,6 +4,9 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 
+const cloudinary = require('cloudinary').v2;
+const fileUpload = require('express-fileupload');
+
 const errorHandler = require('./middleware/error-handler');
 const notFound = require('./middleware/not-found');
 
@@ -19,6 +22,10 @@ const productRouter = require('./routes/productRoutes');
 app.use(morgan('dev'));
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.json());
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: './tmp/'
+}));
 
 //routes
 app.use('/api/v1/auth', authRouter);
