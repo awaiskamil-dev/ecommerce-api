@@ -15,12 +15,12 @@ const {
 
 router.route('/')
   .get(authenticateUser, getAllProducts)
-  .post(authenticateUser, authorizePermissions, createProduct);
+  .post(authenticateUser, authorizePermissions('admin'), createProduct);
 router.route('/:id')
   .get(authenticateUser, getSingleProduct)
-  .patch(authenticateUser, authorizePermissions, updateProduct)
-  .delete(authenticateUser, authorizePermissions, deleteProduct);
+  .patch(authenticateUser, authorizePermissions('admin'), updateProduct)
+  .delete(authenticateUser, authorizePermissions('admin'), deleteProduct);
 router.route('/uploadImage')
-  .post(authenticateUser, authorizePermissions, uploadImage);
+  .post(authenticateUser, authorizePermissions('admin'), uploadImage);
 
 module.exports = router;
