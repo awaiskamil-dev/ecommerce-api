@@ -29,14 +29,14 @@ A full-featured e-commerce REST API built with Node.js, Express, and MongoDB —
 
 ## Project Structure
 
-\```
+```
 controllers/    route handler logic
 models/         Mongoose schemas
 routes/         Express routers
 middleware/     auth, error handling, not-found
 errors/         custom error classes (BadRequestError, NotFoundError, UnauthenticatedError, UnauthorizedError)
 utils/          JWT helpers, cookie helper, checkPermissions, createTokenUser
-\```
+```
 
 ## Getting Started
 
