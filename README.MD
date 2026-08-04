@@ -78,7 +78,7 @@ The API runs on `http://localhost:5000`, with all routes prefixed with `/api/v1`
 
 ## API Documentation
 
-Full endpoint reference — request bodies, required auth, and example responses — is available in [`API-Documentation.md`](./API-Documentation.md).
+Full endpoint reference — request bodies, required auth, and example responses — is available in [`api-documentation.MD`](./API-Documentation.md).
 
 ## Testing
 
