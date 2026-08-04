@@ -12,9 +12,9 @@ const {
 router.route('/')
   .get(authenticateUser, authorizePermissions('admin'), getAllOrders)
   .post(authenticateUser, createOrder);
-router.route('/:id')
+router.route('/showAllMyOrders').get(authenticateUser, getCurrentUserOrders);
+  router.route('/:id')
   .get(authenticateUser, getSingleOrder)
   .patch(authenticateUser, updateOrder);
-router.route('/showAllMyOrders').get(authenticateUser, getCurrentUserOrders);
 
 module.exports = router;
