@@ -69,6 +69,7 @@ const deleteReview = async (req, res) => {
   }
 
   checkPermissions(req.user, review.user);
+  await review.remove();
   res.status(StatusCodes.OK).send('Review deleted succesfully');
 };
 
